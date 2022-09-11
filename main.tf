@@ -13,16 +13,6 @@ locals {
   location       = "westus3"
 }
 
-data "template_cloudinit_config" "linuxconfig" {
-  gzip          = true
-  base64_encode = true
-
-  part {
-    content_type = "text/cloud-config"
-    content      = "packages: ['nginx']"
-  }
-}
-
 resource "azurerm_resource_group" "app_grp" {
   name     = local.resource_group
   location = local.location
