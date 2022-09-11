@@ -66,7 +66,7 @@ resource "azurerm_linux_virtual_machine" "app_vm1" {
   location                        = local.location
   size                            = "Standard_B1s"
   admin_username                  = "linuxusr"
-  admin_password                  = "Azure@123"
+  admin_password                  = "Azureaks@123"
   disable_password_authentication = false
   custom_data                     = data.template_cloudinit_config.linuxconfig.rendered
   network_interface_ids = [
