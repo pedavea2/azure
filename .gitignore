@@ -1,7 +1,0 @@
-.terraform
-.terraform/*
-.terraform.lock.hcl
-.terraform*
-variables.tf
-terraform.tfvars
-kubeconfig
