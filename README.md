@@ -1,1 +1,1 @@
-# azure argocd
+# azure argocd deployments
