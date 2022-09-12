@@ -1,0 +1,17 @@
+server:
+  additionalApplications:
+   - name: cluster-config
+     namespace: argocd
+     project: default
+     source:
+       repoURL: https://github.com/pedavea2/argos-demo-config.git
+       targetRevision: HEAD
+       path: .
+       directory:
+         recurse: true
+     destination:
+       server: https://kubernetes.default.svc
+     syncPolicy:
+       automated:
+         prune: false
+         selfHeal: false
