@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: newpod
+spec:
+  containers:
+  - name: nginx2
+    image: nginx:latest
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume
+  volumes:
+    - name: volume
+      persistentVolumeClaim:
+        claimName: azure-managed-disk-pvc

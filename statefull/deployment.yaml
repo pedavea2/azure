@@ -1,0 +1,28 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: newpod
+spec:
+  containers:
+  - name: nginx2
+    image: nginx:latest
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume
+  volumes:
+    - name: volume
+      persistentVolumeClaim:
+        claimName: azure-managed-disk-pvc
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azure-managed-disk-pvc
+spec:
+  accessModes:
+  - ReadWriteOnce   # ReadWriteOnce, ReadOnlyMany or ReadWriteMany
+  storageClassName: azuredisk-premium-retain
+  resources:
+    requests:
+      storage: 4Gi
